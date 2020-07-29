@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { json } from 'express';
 
 const app = express();
 
@@ -9,8 +9,8 @@ import tasks from './routes/tasks.routes';
 //Settings
 app.set('port', process.env.PORT || 3000);
 
-
 //Routes
+app.use(json());
 app.use(routes);
 app.use('/tasks', tasks);
 
